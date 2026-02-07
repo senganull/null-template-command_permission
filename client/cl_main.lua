@@ -1,5 +1,5 @@
 RegisterNetEvent('null-template-command_permission:client:showNotification')
-AddEventHandler('null-template-command_permission:showNotification', function(message)
+AddEventHandler('null-template-command_permission:client:showNotification', function(message)
     BeginTextCommandThefeedPost("STRING")
     AddTextComponentSubstringPlayerName(message)
     EndTextCommandThefeedPostTicker(false, false)
