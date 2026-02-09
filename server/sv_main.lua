@@ -12,7 +12,7 @@ RegisterCommand('testcmd', function(source, args, rawCommand)
     end
 
     local targetId = tonumber(args[1])
-    local message = args[2]
+    local message = table.concat(args, " ", 2)
 
     if not targetId or not message then
         TriggerClientEvent('chat:addMessage', src, {
