@@ -2,6 +2,7 @@ RegisterCommand('testcmd', function(source, args, rawCommand)
     local src = source
     
     --　管理者権限チェック (ACE: command.testcmd)
+    --  (第3引数をfalseにするなら、ここで自力で弾く)
     if src ~= 0 and not IsPlayerAceAllowed(src, "command.testcmd") then
         TriggerClientEvent('chat:addMessage', src, {
             color = {255, 0, 0},
