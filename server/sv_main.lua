@@ -11,19 +11,19 @@ RegisterCommand('testcmd', function(source, args, rawCommand)
         return
     end
 
-    -- エラーハンドリング
-    local targetId = args[1]
+    local targetId = tonumber(args[1])
     local message = args[2]
 
     if not targetId or not message then
         TriggerClientEvent('chat:addMessage', src, {
             color = {255, 255, 0},
             multiline = true,
-            args = {"System", "構文エラー: /testcmd [ID] [MESSAGE] の形で入力してください"}
+            args = {"System", "構文エラー: /testcmd [ID] [MESSAGE]"}
         })
         return
     end
 
+    TriggerClientEvent('null-template-command_permission:client:showNotification', targetId, message)
     print(string.format("Command executed by %s: Target %s, Message: %s", GetPlayerName(src), targetId, message))
 
     --成功時のフィードバック
